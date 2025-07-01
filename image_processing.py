@@ -10,11 +10,14 @@ def convert_to_gray(image):
     """將圖片轉換為灰度圖"""
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-def sample_line_rgb(image, start_point, end_point, num_samples=100):
-    """沿著線段採樣RGB值"""
+def sample_line_rgb(image, start_point, end_point):
+    """沿著線段採樣RGB值，依據每個 pixel 來採樣"""
     x1, y1 = start_point
     x2, y2 = end_point
     
+    num_samples = y2 - y1 + 1
+    print('num_samples: ', num_samples)
+
     # 生成線段上的採樣點
     positions = []
     rgb_values = []

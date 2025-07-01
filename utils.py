@@ -11,7 +11,7 @@ def save_results(image, corners, method_name):
         cv2.putText(result_image, f'P{i+1}', (x+15, y-5),
                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
     
-    # 連接四個點形成四邊形
+    # 連接四個點形成四邊形 並且要照順序連接
     if len(corners) == 4:
         pts = np.array(corners, np.int32)
         cv2.polylines(result_image, [pts], True, (0, 255, 0), 2)
